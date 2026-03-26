@@ -1,24 +1,21 @@
 "use client";
 
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { navLinks } from "@/constants";
 import { useGSAP } from "@gsap/react";
-
-
-gsap.registerPlugin(ScrollTrigger);
+import ScrollTrigger from "gsap-trial/ScrollTrigger";
 
 export default function Navbar() {
   useGSAP(()=>{
     const navTween = gsap.timeline({
       scrollTrigger: {
-        trigger: "nav",
+        trigger: 'nav',
         start: "bottom top"
       }
     })
     navTween.fromTo("nav",{backgroundColor:"transparent"},{
       backgroundColor:"#00000050",
-      backgroundfilter:"blur(10px)",
+      backgroundFilter:'blur(10px)',
       duration:1,
       ease:"power1.inOut"
     })
