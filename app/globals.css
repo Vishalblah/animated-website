@@ -52,6 +52,13 @@ body {
     );
 }
 
+@utility masked-img {
+    mask-image: url("/images/mask-img.png");
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: 50%;
+}
+
 @layer utilities {
   .mask-custom {
     -webkit-mask-image: url('/mask.png');
@@ -238,6 +245,7 @@ body {
             }
         }
     }
+
 
     #art {
         @apply flex-center flex-col min-h-dvh p-5 mt-20 relative radial-gradient;

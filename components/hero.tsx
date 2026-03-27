@@ -9,7 +9,7 @@ import { useMediaQuery } from "react-responsive";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Hero() {
-    const videoRef = useRef<HTMLVideoElement | null>(null);
+    const videoRef = useRef<HTMLVideoElement | null>(null)
     const isMobile = useMediaQuery({maxWidth:767})
     useGSAP(()=>{
         const heroSplit = new SplitText(".title",{type:"chars,words"});
@@ -57,11 +57,13 @@ export default function Hero() {
         }
     })
 
-    videoRef.current.onloadeddata = ()=>{
-        tl.to(videoRef.current,{
-            currentTime: videoRef.current.duration
-        })
-    }
+    if (videoRef.current) {
+  videoRef.current.onloadeddata = () => {
+    tl.to(videoRef.current, {
+      currentTime: videoRef.current?.duration
+    });
+  };
+}
     },[]);
     return (
         <>
